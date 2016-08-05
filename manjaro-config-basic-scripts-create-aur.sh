@@ -12,9 +12,16 @@ fi
 useradd -r -s /bin/bash -d "${AUR_HOME}" aur
 echo "enter new password for user aur twice:"
 passwd aur
-mkdir "${AUR_HOME}"
-chown aur "${AUR_HOME}"
+
+echo "aur      ALL=(ALL) NOPASSWD: /usr/bin/pacman" >> /etc/sudoers
+
+mkdir "${AUR_HOME}" && chown aur "${AUR_HOME}"
+
 cp /usr/share/manjaro-config-basic-scripts/bashrc-aur "${AUR_HOME}"/.bashrc
 chown aur "${AUR_HOME}"/.bashrc
 chmod 644 "${AUR_HOME}"/.bashrc
-echo "aur      ALL=(ALL) NOPASSWD: /usr/bin/pacman" >> /etc/sudoers
+
+cp /usr/share/manjaro-config-basic-scripts/vimrc "${AUR_HOME}"/.vimrc
+chown aur "${AUR_HOME}"/.vimrc
+chmod 644 "${AUR_HOME}"/.vimrc
+su aur -c 'cd && git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle && vim -c ":BundleInstall"'
