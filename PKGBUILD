@@ -2,11 +2,11 @@
 
 pkgname=manjaro-config-basic-scripts
 pkgver=0.1
-pkgrel=2
+pkgrel=3
 url=https://github.com/ftalbrecht/manjaro-config-basic-scripts
 license=('BSD2')
 arch=('any')
-depends=('gvim' 'bash-completion' 'vimpager' 'ack')
+depends=('bash-completion' 'vimpager' 'ack')
 source=('manjaro-config-basic-scripts-create-aur.sh'
         'bashrc-aur'
         'LICENSE')
