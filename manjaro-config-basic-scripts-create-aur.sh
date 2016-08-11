@@ -21,6 +21,8 @@ cp /usr/share/manjaro-config-basic-scripts/bashrc-aur "${AUR_HOME}"/.bashrc
 chown aur "${AUR_HOME}"/.bashrc
 chmod 644 "${AUR_HOME}"/.bashrc
 
+su aur -c 'git config --global user.name aur@manjaro && git config --global user.email aur@manjaro && git config --global color.branch auto && git config --global color.diff auto && git config --global color.interactive auto && git config --global color.status auto && git config --global color.ui true && git config --global push.default simple'
+
 cp /usr/share/manjaro-config-basic-scripts/vimrc "${AUR_HOME}"/.vimrc
 chown aur "${AUR_HOME}"/.vimrc
 chmod 644 "${AUR_HOME}"/.vimrc
